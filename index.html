@@ -11,21 +11,34 @@
     <title>Boolzap</title>
 </head>
 <body>
-    <header id="background-header"> </header>
-    <div id="container">
-        <aside id="chat-list">
-            <section id="user-bar">
-                <div id="user"></div>
-                <div id="nav-settings"></div>
-    
-            </section>
-            <div id="notice-alert"></div>
-            <div class="backgroud-chat-list">
-                <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
-            </div>
-        </aside>
-        <div id="main-chat"></div>
-    </div>
+    <header id="background-header">
+        <div id="container">
+            <aside id="chat-list">
+                <section id="user-bar">
+                    <div id="user">
+                        <div class="img-container"> </div>
+                        <div class="username" >Alberto</div>
+                    </div>
+                    <div id="nav-settings">
+                        <span class="icons-settings"><i class="fas fa-circle-notch"></i></span>
+                        <span class="icons-settings"><i class="fas fa-comment-alt"></i></span>
+                        <span class="icons-settings"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+        
+                </section>
+                <div id="notice-alert">
+                    <div class="img-container alert-stop-box"> <i class="fas fa-bell-slash"></i> </div>
+                    <div>Ricevi Notifiche di nuovi messaggi <br>
+                    <a href=""> Attiva notifiche desktop</a></div>
+
+                </div>
+                <div class="backgroud-chat-list">
+                    <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
+                </div>
+            </aside>
+            <div id="main-chat"></div>
+        </div>
+    </header>
 
     
 

@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="stylesheet" href="style.css">
-    <title>Boolzap</title>
+    <title>Boolzapp</title>
 </head>
 <body>
     <header id="background-header">
         <div id="container">
-            <aside id="chat-list">
+            <aside id="side-container">
                 <section id="user-bar">
                     <div id="user">
-                        <div class="img-container"> </div>
+                        <div class="img-container"> <img src="img/avatar_io.jpg" alt="Alberto"> </div>
                         <div class="username" >Alberto</div>
                     </div>
                     <div id="nav-settings">
@@ -32,8 +32,21 @@
                     <a href=""> Attiva notifiche desktop</a></div>
 
                 </div>
-                <div class="backgroud-chat-list">
+                <div class="background-search-list">
+                    <i class="fas fa-search"></i>
                     <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <div id="chat-list">
+                    <div class="chat" v-for= 'contact, i in contacts' :key='i'>
+                        <div class="img-container"> <img :src= 'contact.avatar' :alt="contact.name"></div>
+                        <div class="username">{{contact.name}}
+                            
+                        </div>
+                        <div class="last-msg">{{contact.messages.text}}</div>
+
+                        
+                    </div> 
+                    
                 </div>
             </aside>
             <div id="main-chat"></div>

@@ -2,7 +2,7 @@ var app = new Vue ( {
     
     el:'#chat-list',
     data : {
-        
+        activeChat: 0,
         contacts : [
             {
                 name: 'Michele',
@@ -79,7 +79,7 @@ var app = new Vue ( {
                 name: 'Luisa',
                 avatar: 'img/avatar_4.jpg',
                 visible: true,
-                active: true,
+                active: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -96,13 +96,9 @@ var app = new Vue ( {
         ]
     },
     methods: {
-        selectedChat: function() {
-            if(this.contacts.active=true){
-                this.contacts.active=false
-                console.log("bob");
-            } else {
-                this.contacts.active = true
-            }
+        selectedChat: function(index) {
+            this.activeChat = index
+
         }
     }
 }

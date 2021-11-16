@@ -40,7 +40,7 @@
 
                 <!-- :class='message.active == true ? "active" : "" ' -->
                 <div id="chat-list">
-                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat" >  
+                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat(i)" :class="i === activeChat ? 'active' : '' " >  
                         <div class="img-container"> <img :src= 'contact.avatar' :alt="contact.name"></div>
                         <div id="info-side-box">
                             <div class="username">{{contact.name}}
@@ -64,8 +64,8 @@
             <div id="main-chat"  >
                 <section class="user-bar">
                     <div class="user-header">
-                        <div class="img-container"> <img :src='contact.avatar' :alt="{{contact.name}}"> </div>
-                        <div class="username" >{{contact.name}}
+                        <div class="img-container"> <img :src='contacts[activeChat].avatar' :alt="{{contact.name}}"> </div>
+                        <div class="username" >{{contact[activeChat].name}}
                             <div class="last-login">Ultimo Accesso Ieri</div>
                         </div>
 

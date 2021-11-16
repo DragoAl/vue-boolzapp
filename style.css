@@ -6,6 +6,7 @@
 
 body {
     background-color: #dadbd4;
+    font-family: sans-serif;
 }
 
 #background-header {
@@ -17,14 +18,14 @@ body {
 #container {
     display: flex;
     width: 80%;
-    height:90vh ;
+    height:100vh ;
     margin: 0px auto;
     background-color: blue;
 
 }
 
 #side-container {
-    width: 30%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -118,13 +119,24 @@ img {
     top: 12px;
     left: 10px;
 }
-#chat-list {
 
-}
 
 .side-chat {
     display: flex;
     margin: 20px 5px;
+}
+#info-side-box {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.side-date-time {
+    float: right;
+    font-size: 10px;
+    color: #ced0d2 ;
+    align-self:  flex-start;
+    flex-wrap: nowrap;
 }
 
 /* #chat-list img {
@@ -140,7 +152,7 @@ img {
 }
 
 #main-chat {
-    width: 70%;
+    width: 65%;
     background-image: url(img/Spacejam\ Michael\ Jordan\ EPIC\ Goods.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -153,25 +165,49 @@ img {
 }
  
 #chat {
-    height: calc(90vh - 75px);
+    /* height: calc(90vh - 75px); */
+    height: calc(100% - 60px);
     position: relative;
-} 
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+
+
 
 .sent {
-    width: 200px;
+    align-self: flex-end;
+    min-width: 200px;
+    max-width: 300px;
     background-color: #d5f9ba;
-    margin:2% 10% 0 60%;
-    padding: 10px;
+    margin: 10px 60px;
+    border-radius: 10px;
+    padding: 10px 10px 5px 10px;
+    display: flex;
+    flex-flow: column nowrap;
+
 
 
 }
 .received {
-    width: 200px;
+    align-self: flex-start;
+    min-width: 200px;
+    max-width: 300px;
     background-color: white;
-    margin:2% 60% 0 10%;
-    padding: 10px;
+    margin: 10px 60px;
+    border-radius: 10px;
+
+    padding: 10px 10px 5px 10px;
+    display: flex;
+    flex-flow: column nowrap;
 
 
+}
+
+.chat-date-time {
+    font-size: 10px;
+    color: #ced0d2 ;
+    align-self: flex-end;
 }
 
 #footer-bar {
@@ -195,10 +231,15 @@ img {
 }
 
 #footer-bar input {
+    
     width: 85%;
     padding: 15px;
     border-radius: 5px;
     border: none;
+}
+
+.active {
+    background-color: #e9ebeb;
 }
 
 

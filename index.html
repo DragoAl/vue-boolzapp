@@ -36,13 +36,24 @@
                     <i class="fas fa-search"></i>
                     <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
                 </div>
+
+
+                <!-- :class='message.active == true ? "active" : "" ' -->
                 <div id="chat-list">
-                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'>
+                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat" >  
                         <div class="img-container"> <img :src= 'contact.avatar' :alt="contact.name"></div>
-                        <div class="username">{{contact.name}}
-                            <div class="last-msg">{{contact.messages.at(-1).text}}</div>
+                        <div id="info-side-box">
+                            <div class="username">{{contact.name}}
+                                <div class="last-msg">{{contact.messages.at(-1).text}}</div>
+    
+    
+                            </div>
+                            <div class=" side-date-time">{{contact.messages.at(-1).date}}</div>
 
                         </div>
+                        
+
+
 
                         
                     </div> 
@@ -50,28 +61,29 @@
                 </div>
             </aside>
 
-            <div id="main-chat">
+            <div id="main-chat"  >
                 <section class="user-bar">
                     <div class="user-header">
-                        <div class="img-container"> <img src="img/avatar_io.jpg" alt="Alberto"> </div>
-                        <div class="username" >Alberto
-                            <div class="last-login">Ultimo Accesso</div>
+                        <div class="img-container"> <img :src='contact.avatar' :alt="{{contact.name}}"> </div>
+                        <div class="username" >{{contact.name}}
+                            <div class="last-login">Ultimo Accesso Ieri</div>
                         </div>
 
                     </div>
-                    <div class="nav-settings">
+                    <div class="nav-settings"> 
                         <span class="icons-settings"><i class="fas fa-search"></i></span>
                         <span class="icons-settings"><i class="fas fa-paperclip"></i></span>
                         <span class="icons-settings"><i class="fas fa-ellipsis-v"></i></span>
                     </div>
                 </section>
-                <section id="chat">
-                    <div class="sent">sdcdc</div>
+                <section id="chat" v-for="message, i in messages" :key="i"   >
+                    
+                    <div :class="message.status === 'sent' ? 'sent' : 'received' " >{{message.text}} <div class="chat-date-time"> {{message.date}}</div></div>
+                    
+                
+                   
 
-                    <div class="sent">sdcdc</div>
-                    <div class="received">wdff</div>
-                    <div class="sent">sdcdc</div>
-                    <div class="received">wdff</div>
+                    
                     <footer id="footer-bar">
                         <span><i class="far fa-smile"></i></span>
                         <input type="text" placeholder="Scrivi un messaggio"> 

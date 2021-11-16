@@ -14,12 +14,12 @@
     <header id="background-header">
         <div id="container">
             <aside id="side-container">
-                <section id="user-bar">
-                    <div id="user">
+                <section class="user-bar">
+                    <div class="user-header">
                         <div class="img-container"> <img src="img/avatar_io.jpg" alt="Alberto"> </div>
                         <div class="username" >Alberto</div>
                     </div>
-                    <div id="nav-settings">
+                    <div class="nav-settings">
                         <span class="icons-settings"><i class="fas fa-circle-notch"></i></span>
                         <span class="icons-settings"><i class="fas fa-comment-alt"></i></span>
                         <span class="icons-settings"><i class="fas fa-ellipsis-v"></i></span>
@@ -37,19 +37,54 @@
                     <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div id="chat-list">
-                    <div class="chat" v-for= 'contact, i in contacts' :key='i'>
+                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'>
                         <div class="img-container"> <img :src= 'contact.avatar' :alt="contact.name"></div>
                         <div class="username">{{contact.name}}
-                            
+                            <div class="last-msg">{{contact.messages.at(-1).text}}</div>
+
                         </div>
-                        <div class="last-msg">{{contact.messages.text}}</div>
 
                         
                     </div> 
                     
                 </div>
             </aside>
-            <div id="main-chat"></div>
+
+            <div id="main-chat">
+                <section class="user-bar">
+                    <div class="user-header">
+                        <div class="img-container"> <img src="img/avatar_io.jpg" alt="Alberto"> </div>
+                        <div class="username" >Alberto
+                            <div class="last-login">Ultimo Accesso</div>
+                        </div>
+
+                    </div>
+                    <div class="nav-settings">
+                        <span class="icons-settings"><i class="fas fa-search"></i></span>
+                        <span class="icons-settings"><i class="fas fa-paperclip"></i></span>
+                        <span class="icons-settings"><i class="fas fa-ellipsis-v"></i></span>
+                    </div>
+                </section>
+                <section id="chat">
+                    <div class="sent">sdcdc</div>
+
+                    <div class="sent">sdcdc</div>
+                    <div class="received">wdff</div>
+                    <div class="sent">sdcdc</div>
+                    <div class="received">wdff</div>
+                    <footer id="footer-bar">
+                        <span><i class="far fa-smile"></i></span>
+                        <input type="text" placeholder="Scrivi un messaggio"> 
+                        <span><i class="fas fa-microphone"></i></span>
+    
+    
+                    </footer>
+
+
+
+                </section>
+               
+            </div>
         </div>
     </header>
 

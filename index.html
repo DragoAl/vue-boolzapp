@@ -13,6 +13,7 @@
 <body>
     <header id="background-header">
         <div id="container">
+            <!-- side-bar -->
             <aside id="side-container">
                 <section class="user-bar">
                     <div class="user-header">
@@ -26,6 +27,7 @@
                     </div>
         
                 </section>
+                <!-- notification banner -->
                 <div id="notice-alert">
                     <div class="img-container alert-stop-box"> <i class="fas fa-bell-slash"></i> </div>
                     <div>Ricevi Notifiche di nuovi messaggi <br>
@@ -37,8 +39,7 @@
                     <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
-
-                <!-- :class='message.active == true ? "active" : "" ' -->
+                <!-- chats side il click sulla chat imposta la classe active sull'elemento selezionato-->
                 <div id="chat-list">
                     <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat(i)" :class="i === activeChat ? 'active' : '' " >  
                         
@@ -57,9 +58,9 @@
                     
                 </div>
             </aside>
-
+            <!-- main chat -->
             <div id="main-chat" >
-                
+                <!-- header main-chat -->
                 <section class="user-bar">
                     <div class="user-header " >
                         <div class="img-container"> <img :src='contacts[activeChat].avatar' :alt="contacts[activeChat].name"> </div>
@@ -74,15 +75,16 @@
                         <span class="icons-settings"><i class="fas fa-ellipsis-v"></i></span>
                     </div>
                 </section>
-                
+                <!-- conversation -->
                 <section id="chat" >
                     <div v-for="message, x in contacts[activeChat].messages" :key="x"  :class="message.status == 'sent' ? 'sent' : 'received' "  >
                         {{message.text}} 
                         <div class="chat-date-time"> {{message.date}}</div>
                     </div>
-                    <footer id="footer-bar">
+                    <!-- l'input del messaggio -->
+                    <footer id="footer-bar" >
                         <span><i class="far fa-smile"></i></span>
-                        <input type="text" placeholder="Scrivi un messaggio"> 
+                        <input type="text" v-model='newMessage.text' placeholder="Scrivi un messaggio" @keyup.enter='addMessage(activeChat)'> 
                         <span><i class="fas fa-microphone"></i></span>
     
     

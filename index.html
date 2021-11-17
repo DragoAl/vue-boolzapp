@@ -36,18 +36,18 @@
                 </div>
                 <div class="background-search-list">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-chat-list" placeholder="Cerca o inizia una nuova chat">
+                    <input type="text" id="search-chat-list" v-model="userSearch" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <!-- chats side il click sulla chat imposta la classe active sull'elemento selezionato-->
                 <div id="chat-list">
-                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat(i)" :class="i === activeChat ? 'active' : '' " >  
+                    <div class="side-chat" v-for= 'contact, i in contacts' :key='i'  @click="selectedChat(i)" :class="i === activeChat ? 'active' : '' " v-if='contact.name.toUpperCase().includes(userSearch.toUpperCase())'  >  
                         
                         <div class="img-container"> <img :src= 'contact.avatar' :alt="contact.name"></div>
                         
                         <div id="info-side-box">
                             
-                            <div class="username">{{contact.name}}
+                            <div class="username" >{{contact.name}}
                                 <div class="last-msg">{{contact.messages.at(-1).text}}</div>
                             </div>
                             

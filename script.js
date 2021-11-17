@@ -32,6 +32,7 @@ var app = new Vue ( {
             text: 'ok',
             status:'received'
         },
+        userSearch : '',
 
 
         contacts : [

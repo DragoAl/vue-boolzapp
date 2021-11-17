@@ -33,6 +33,7 @@ var app = new Vue ( {
             status:'received'
         },
 
+
         contacts : [
             {
                 name: 'Michele',
@@ -135,10 +136,9 @@ var app = new Vue ( {
                 text: '',
                 status:'sent'};
                 
-                setTimeout(function (){
-                  
-                    this.contacts.messages.push(replyMessage);
-                }, 1000);
+                setTimeout(() => this.contacts[this.activeChat].messages.push(this.replyMessage),1000);
+
+
 
             }
 
@@ -148,14 +148,7 @@ var app = new Vue ( {
 }
 
 )
-// function autoReply () {
-//     let answer = [];
-
-//     replyMessage= {
-//         date: '10/01/2020 15:30:55',
-//         text: 'ok',
-//         status:'received'
-//     }
-//     console.log(answer);
-//     return answer.push(this.replyMessage)
-// }
+// capire perchè così non va
+// setTimeout( function(){
+//     this.contacts[this.active].messages.push(this.replyMessage)
+// },1000);

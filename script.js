@@ -21,6 +21,7 @@ var app = new Vue ( {
     el:'#container',
     data : {
         activeChat: 0,
+        activeMessage:-1,
 
         newMessage: {
             date: '10/01/2020 15:30:55',
@@ -126,8 +127,11 @@ var app = new Vue ( {
     methods: {
         selectedChat: function(index) {
             this.activeChat = index
-        },
+            if(this.activeChat !== index){
+                this.contacts[index].visible = false
 
+            }             
+        },
 
         addMessage: function(index) {
             if (this.newMessage.text !== '' ){
@@ -139,11 +143,25 @@ var app = new Vue ( {
                 
                 setTimeout(() => this.contacts[this.activeChat].messages.push(this.replyMessage),1000);
 
-
-
             }
 
         },
+
+        selectedMessage: function(index){
+            
+            if(this.activeMessage == index) {
+                this.activeMessage = -1
+
+            } else {
+                this.activeMessage = index
+            }
+
+        },
+
+        deleteMessage: function(index){
+            this.contacts[this.activeChat].messages.splice(index, 1);
+        }
+
         
     }
 }

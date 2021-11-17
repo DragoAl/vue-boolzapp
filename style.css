@@ -177,11 +177,12 @@ img {
 
 .sent {
     align-self: flex-end;
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 150px;
+    max-width: 320px;
     background-color: #d5f9ba;
     margin: 10px 60px;
     border-radius: 10px;
+    font-size:14px ;
     padding: 10px 10px 5px 10px;
     display: flex;
     flex-flow: column nowrap;
@@ -191,20 +192,61 @@ img {
 }
 .received {
     align-self: flex-start;
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 150px;
+    max-width: 320px;
     background-color: white;
     margin: 10px 60px;
     border-radius: 10px;
-
+    font-size:14px ;
     padding: 10px 10px 5px 10px;
     display: flex;
     flex-flow: column nowrap;
+}
 
+.text-buble {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-chevron-down {
+    margin-left: 5px;
+    color: #b1b1b1;
+    display: none;
+    cursor: pointer;
+    position: relative;
 
 }
 
+.text-buble:hover .fa-chevron-down {
+    display: inline ;
+}
+
+.info-menu {
+    width: 100px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);   
+    display: none;
+    position: absolute;
+    z-index: 1;
+    transform: translate(-80%);    
+}
+
+.info-menu li {
+    list-style: none;
+    padding: 10px 14px;
+}
+
+.info-menu li:hover {
+    background-color: lightgrey;
+
+}
+
+.show {
+    display: block;
+}
+
 .chat-date-time {
+    margin-top: 5px;
     font-size: 10px;
     color: #ced0d2 ;
     align-self: flex-end;

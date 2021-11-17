@@ -77,15 +77,30 @@
                 </section>
                 <!-- conversation -->
                 <section id="chat" >
-                    <div v-for="message, x in contacts[activeChat].messages" :key="x"  :class="message.status == 'sent' ? 'sent' : 'received' "  >
-                        {{message.text}} 
+                    <div v-for="message, y in contacts[activeChat].messages" :key="y"  :class="message.status == 'sent' ? 'sent' : 'received' "  >
+                        <div class="text-buble">{{message.text}} 
+                            <span @click="selectedMessage(y)" v-if="contacts[activeChat].visible === true"><i class="fas fa-chevron-down"></i>
+                                <div class="info-menu" :class="y == activeMessage   ? 'show': '' ">
+                                    <ul>
+                                        <li>info Messaggio</li>
+                                        <li @click='deleteMessage(activeMessage)'>Cancella Messaggio</li>
+                                    </ul>
+                                </div>
+                            </span> 
+                           
+                        </div>                        
                         <div class="chat-date-time"> {{message.date}}</div>
+                        
+                       
                     </div>
+                    
                     <!-- l'input del messaggio -->
                     <footer id="footer-bar" >
                         <span><i class="far fa-smile"></i></span>
                         <input type="text" v-model='newMessage.text' placeholder="Scrivi un messaggio" @keyup.enter='addMessage(activeChat)'  > 
                         <span><i class="fas fa-microphone"></i></span>
+
+                        
     
     
                     </footer>

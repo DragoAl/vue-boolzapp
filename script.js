@@ -21,10 +21,16 @@ var app = new Vue ( {
     el:'#container',
     data : {
         activeChat: 0,
+
         newMessage: {
             date: '10/01/2020 15:30:55',
             text: '',
             status:'sent'
+        },
+        replyMessage: {
+            date: '10/01/2020 15:30:55',
+            text: 'ok',
+            status:'received'
         },
 
         contacts : [
@@ -119,6 +125,8 @@ var app = new Vue ( {
         selectedChat: function(index) {
             this.activeChat = index
         },
+
+
         addMessage: function(index) {
             if (this.newMessage.text !== '' ){
                 this.contacts[index].messages.push(this.newMessage);
@@ -126,10 +134,28 @@ var app = new Vue ( {
                 date: '10/01/2020 15:30:55',
                 text: '',
                 status:'sent'};
-    
+                
+                setTimeout(function (){
+                  
+                    this.contacts.messages.push(replyMessage);
+                }, 1000);
+
             }
-        }
+
+        },
+        
     }
 }
 
 )
+// function autoReply () {
+//     let answer = [];
+
+//     replyMessage= {
+//         date: '10/01/2020 15:30:55',
+//         text: 'ok',
+//         status:'received'
+//     }
+//     console.log(answer);
+//     return answer.push(this.replyMessage)
+// }

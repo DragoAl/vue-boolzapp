@@ -9,21 +9,22 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+/* sfondo verde */
 #background-header {
     height: 100px;
     background-color:#019588 ;
     padding-top: 30px;
 }
 
+/* contenitore principale  */
 #container {
     display: flex;
     width: 80%;
     height:100vh ;
     margin: 0px auto;
-    background-color: blue;
-
 }
 
+/* sotto-contenitore laterale */
 #side-container {
     width: 35%;
     min-width: 250px;
@@ -32,6 +33,7 @@ body {
     background-color: #ffffff;
 }
 
+/* sezione barra utente */
 .user-bar {
     display: flex;
     justify-content: space-between;
@@ -39,6 +41,7 @@ body {
     border-right: 1px solid #e0e0e0;
 }
 
+/* nome e foto utente */
 .user-header {
     width: 70% ;
     height: 60px;
@@ -58,7 +61,6 @@ img {
     min-width: 45px;
     min-height: 45px;
     border-radius: 100%;
-    /* background-color: darkgreen; */
     margin-left: 5px;
     margin-right:  10px;
 }
@@ -68,16 +70,16 @@ img {
     margin: 0 10px;
 }
 
+/* sezione icone */
 .nav-settings {
     width: 30%;
     height: 60px;
-    /* background-color: blueviolet; */
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
 }
 
+/* stile icone */
 .icons-settings {
     font-size: 20px;
     color: #b1b1b1;
@@ -85,6 +87,7 @@ img {
     cursor: pointer;
 }
 
+/* sezione notifiche */
 #notice-alert {
     height: 70px;
     padding: 5px;
@@ -94,6 +97,7 @@ img {
     align-items: center;
 }
 
+/* stile notifiche */
 .alert-stop-box {
     background-color: #f2fbfe;
     display: flex;
@@ -105,11 +109,11 @@ img {
     color: #8edafc;
 }
 
+/* input ricerca utente */
 .background-search-list {
     background-color:#fafafa ;
     padding: 5px;
     position: relative;
-
 }
 
 #search-chat-list {
@@ -126,10 +130,12 @@ img {
     left: 10px;
 }
 
+/* sezione chats */
 #chat-list {
     min-width: 200px;
+    overflow-y: scroll;
 }
-
+/* chat-latrale */
 .side-chat {
     display: flex;
     padding: 15px ;
@@ -161,12 +167,12 @@ img {
     max-width: 150px;
     font-size: 14px;
     color:#bebfc0 ;
-
 }
 
+/*  sezione chat aperta */
 #main-chat {
     width: 65%;
-    min-width: 300px;
+    min-width: 320px;
     background-image: url(img/Spacejam\ Michael\ Jordan\ EPIC\ Goods.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -179,13 +185,14 @@ img {
 }
  
 #chat {
-    /* height: calc(90vh - 75px); */
-    height: calc(100% - 60px);
+    height: calc(100% - 120px);
     position: relative;
     display: flex;
     flex-flow: column nowrap;
+    overflow-y: scroll;
 }
 
+/* stile messaggio inviato */
 .sent {
     align-self: flex-end;
     min-width: 150px;
@@ -199,6 +206,7 @@ img {
     flex-flow: column nowrap;
 }
 
+/* stile messaggio ricevuto */
 .received {
     align-self: flex-start;
     min-width: 150px;
@@ -223,14 +231,13 @@ img {
     display: none;
     cursor: pointer;
     position: relative;
-
 }
 
 .text-buble:hover .fa-chevron-down {
     display: inline ;
 }
 
-.info-menu {
+.dropmenu {
     width: 100px;
     background-color: white;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);   
@@ -240,16 +247,16 @@ img {
     transform: translate(-80%);    
 }
 
-.info-menu li {
+.dropmenu li {
     list-style: none;
     padding: 10px 14px;
 }
 
-.info-menu li:hover {
+.dropmenu li:hover {
     background-color: lightgrey;
-
 }
 
+/* classe per far apparire il dropmenu */
 .show {
     display: block;
 }
@@ -261,17 +268,15 @@ img {
     align-self: flex-end;
 }
 
+/* inout messaggio */
 #footer-bar {
     width: 100%;
     height: 60px;
-    position: absolute;
-    left: 0;
-    bottom: 0px;
+    position: relative;
+    bottom: 0;
     background-color: #f3eeea;
-
     display: flex;
     align-items: center;
-    
 }
 
 #footer-bar i {
@@ -289,6 +294,7 @@ img {
     border: none;
 }
 
+/* classe active per la side chat selezionata */
 .active {
     background-color: #e9ebeb;
 }

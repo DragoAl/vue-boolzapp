@@ -86,7 +86,7 @@
                     <div v-for="message, y in contacts[activeChat].messages" :key="y"  :class="message.status == 'sent' ? 'sent' : 'received' "  >
                         <div class="text-buble">{{message.text}} 
                             <span @click="selectedMessage(y)" v-if="contacts[activeChat].visible === true"> <i class="fas fa-chevron-down"></i>
-                                <div class="info-menu" :class="y == activeMessage  ? 'show': '' ">
+                                <div class="dropmenu" :class="y == activeMessage  ? 'show': '' ">
                                     <ul>
                                         <li>info Messaggio</li>
                                         <li @click='deleteMessage(activeMessage)'>Cancella Messaggio</li>
@@ -99,22 +99,14 @@
                         
                        
                     </div>
-
-                    <!-- :class="y == activeMessage  ? 'show': '' "> -->
-                    <!-- v-if="contacts[activeChat].visible === true"> -->
-                    <!-- y == activeMessage -->
-                    
-                    <!-- l'input del messaggio -->
-                    <footer id="footer-bar" >
-                        <span><i class="far fa-smile"></i></span>
-                        <input type="text" v-model='newMessage.text' placeholder="Scrivi un messaggio" @keyup.enter='addMessage(activeChat)'  > 
-                        <span><i class="fas fa-microphone"></i></span>
-
-                        
-    
-    
-                    </footer>
                 </section>
+
+                <!-- l'input del messaggio -->
+                <footer id="footer-bar" >
+                    <span><i class="far fa-smile"></i></span>
+                    <input type="text" v-model='newMessage.text' placeholder="Scrivi un messaggio" @keyup.enter='addMessage(activeChat)'  > 
+                    <span><i class="fas fa-microphone"></i></span>
+                </footer>
             
                
             </div>
@@ -123,7 +115,6 @@
 
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-
     <script src="script.js"></script>
 </body>
 </html>

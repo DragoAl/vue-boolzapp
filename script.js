@@ -22,15 +22,12 @@ var app = new Vue ( {
     data : {
         activeChat: 0,
         activeMessage:-1,
-
         newMessage: {
             date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             text: '',
             status:'sent'
         },
-
         userSearch : '',
-
 
         contacts : [
             {
@@ -120,7 +117,7 @@ var app = new Vue ( {
             }
         ]
     },
-    
+
     methods: {
         selectedChat: function(index) {
             this.activeChat = index
@@ -174,15 +171,15 @@ var app = new Vue ( {
         getLastAccess: function() {
             let receivedEmpty = 'Non disponibile'
             let messagesCurrentChat = this.contacts[this.activeChat].messages;
-            // filtri i messaggi della chat corrente prendendo solo quelli ricevuti
-
+            // filtro i messaggi della chat corrente prendendo solo quelli ricevuti
             let filteredMessages = messagesCurrentChat.filter(message => message.status === 'received')
+            
             if(filteredMessages != 0) {
-                // selezioni l'ultimo dei messaggi ricevuti e prendi la data
+                // seleziono l'ultimo dei messaggi ricevuti e prendo la data
                 return filteredMessages.at(-1).date
 
             } else {
-                // se non ci sono messaggi ricevuti, ritorni "non disponibile"
+                // se non ci sono messaggi ricevuti, ritorno "non disponibile"
                 return receivedEmpty
             }
         }

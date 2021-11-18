@@ -24,12 +24,12 @@ var app = new Vue ( {
         activeMessage:-1,
 
         newMessage: {
-            date: '10/01/2020 15:30:55',
+            date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
             text: '',
             status:'sent'
         },
         replyMessage: {
-            date: '10/01/2020 15:30:55',
+            date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
             text: 'ok',
             status:'received'
         },
@@ -134,14 +134,15 @@ var app = new Vue ( {
         },
 
         addMessage: function(index) {
+            let thisContact=this.contacts[index];
             if (this.newMessage.text !== '' ){
-                this.contacts[index].messages.push(this.newMessage);
+                thisContact.messages.push(this.newMessage);
                 this.newMessage = {
-                date: '10/01/2020 15:30:55',
+                date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
                 text: '',
                 status:'sent'};
                 
-                setTimeout(() => this.contacts[this.activeChat].messages.push(this.replyMessage),1000);
+                setTimeout(() => thisContact.messages.push(this.replyMessage),1000);
 
             }
 
@@ -151,9 +152,11 @@ var app = new Vue ( {
             
             if(this.activeMessage == index) {
                 this.activeMessage = -1
+                this.contacts[index].visible = false
 
             } else {
                 this.activeMessage = index
+                this.contacts[index].visible = true
             }
 
         },

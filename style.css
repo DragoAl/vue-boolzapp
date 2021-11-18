@@ -6,7 +6,7 @@
 
 body {
     background-color: #dadbd4;
-    font-family: sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 #background-header {
@@ -26,6 +26,7 @@ body {
 
 #side-container {
     width: 35%;
+    min-width: 250px;
     display: flex;
     flex-direction: column;
     background-color: #ffffff;
@@ -52,11 +53,14 @@ img {
 }
 
 .img-container {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
+    min-width: 45px;
+    min-height: 45px;
     border-radius: 100%;
     /* background-color: darkgreen; */
-    margin:0 10px;
+    margin-left: 5px;
+    margin-right:  10px;
 
 }
 
@@ -79,10 +83,13 @@ img {
     font-size: 20px;
     color: #b1b1b1;
     margin-right: 16px;
+    cursor: pointer;
 }
 
 #notice-alert {
     height: 70px;
+    padding: 5px;
+    font-size: 0.9em;
     background-color: #8edafc;
     display: flex;
     align-items: center;
@@ -120,11 +127,23 @@ img {
     left: 10px;
 }
 
+#chat-list {
+    min-width: 200px;
+}
+
+
+
 
 .side-chat {
     display: flex;
-    margin: 20px 5px;
+    padding: 15px ;
+    min-width: 200px;
 }
+
+.side-chat:hover {
+    background-color:#e9ebeb ;
+}
+
 #info-side-box {
     width: 100%;
     display: flex;
@@ -134,7 +153,7 @@ img {
 .side-date-time {
     float: right;
     font-size: 10px;
-    color: #ced0d2 ;
+    color: #bebfc0 ;
     align-self:  flex-start;
     flex-wrap: nowrap;
 }
@@ -145,14 +164,20 @@ img {
 } */
 
 .last-msg {
-    max-width: 250px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
     font-size: 14px;
-    color:#ced0d2 ;
+    color:#bebfc0 ;
 
 }
 
+
+
 #main-chat {
     width: 65%;
+    min-width: 300px;
     background-image: url(img/Spacejam\ Michael\ Jordan\ EPIC\ Goods.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -175,7 +200,9 @@ img {
 
 
 
+
 .sent {
+
     align-self: flex-end;
     min-width: 150px;
     max-width: 320px;

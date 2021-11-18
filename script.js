@@ -28,11 +28,7 @@ var app = new Vue ( {
             text: '',
             status:'sent'
         },
-        replyMessage: {
-            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-            text: 'ok',
-            status:'received'
-        },
+
         userSearch : '',
 
 
@@ -124,6 +120,7 @@ var app = new Vue ( {
             }
         ]
     },
+    
     methods: {
         selectedChat: function(index) {
             this.activeChat = index
@@ -147,10 +144,16 @@ var app = new Vue ( {
                 text: '',
                 status:'sent'};
                 
-                setTimeout(() => thisContact.messages.push(this.replyMessage),1000);
+                setTimeout(() => {
+                    thisContact.messages.push({
+                        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                        text: 'ok',
+                        status:'received'
 
+                    });
+                    
+                },1000);
             }
-
         },
 
         selectedMessage: function(index){
@@ -175,20 +178,14 @@ var app = new Vue ( {
 
             let filteredMessages = messagesCurrentChat.filter(message => message.status === 'received')
             if(filteredMessages != 0) {
+                // selezioni l'ultimo dei messaggi ricevuti e prendi la data
                 return filteredMessages.at(-1).date
 
             } else {
+                // se non ci sono messaggi ricevuti, ritorni "non disponibile"
                 return receivedEmpty
             }
-            
-
-            
-
-            
-            // selezioni l'ultimo dei messaggi ricevuti e prendi la data
-            // se non ci sono messaggi ricevuti, ritorni "non disponibile"
         }
-        
     }
 }
 
@@ -198,4 +195,3 @@ var app = new Vue ( {
 //     this.contacts[this.active].messages.push(this.replyMessage)
 // },1000);
 
-/* <div class="last-login" v-if="contacts[activeChat].messages.at(-1).status === 'received'">Ultimo Accesso oggi {{contacts[activeChat].messages.at(-1).date}} </div> */

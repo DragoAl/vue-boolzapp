@@ -69,9 +69,10 @@
                     <div class="user-header " >
                         <div class="img-container"> <img :src='contacts[activeChat].avatar' :alt="contacts[activeChat].name"> </div>
                         <div class="username" >{{contacts[activeChat].name}}
-                            <div class="last-login" v-if="contacts[activeChat].messages.at(-1).status === 'received'">Ultimo Accesso oggi {{contacts[activeChat].messages.at(-1).date}} </div>
-                            <div class="last-login" v-else>Ultimo Accesso oggi</div>
+
+                            <div class="last-login">Ultimo Accesso: {{getLastAccess() }}</div>
                         </div>
+                        
 
                     </div>
                     <div class="nav-settings"> 
@@ -84,7 +85,7 @@
                 <section id="chat" >
                     <div v-for="message, y in contacts[activeChat].messages" :key="y"  :class="message.status == 'sent' ? 'sent' : 'received' "  >
                         <div class="text-buble">{{message.text}} 
-                            <span @click="selectedMessage(y)" v-if="contacts[activeChat].visible === true"><i class="fas fa-chevron-down"></i>
+                            <span @click="selectedMessage(y)" v-if="contacts[activeChat].visible === true"> <i class="fas fa-chevron-down"></i>
                                 <div class="info-menu" :class="y == activeMessage  ? 'show': '' ">
                                     <ul>
                                         <li>info Messaggio</li>
@@ -98,6 +99,10 @@
                         
                        
                     </div>
+
+                    <!-- :class="y == activeMessage  ? 'show': '' "> -->
+                    <!-- v-if="contacts[activeChat].visible === true"> -->
+                    <!-- y == activeMessage -->
                     
                     <!-- l'input del messaggio -->
                     <footer id="footer-bar" >
@@ -116,8 +121,7 @@
         </div>
     </header>
 
-    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 
     <script src="script.js"></script>

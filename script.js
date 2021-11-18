@@ -24,12 +24,12 @@ var app = new Vue ( {
         activeMessage:-1,
 
         newMessage: {
-            date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             text: '',
             status:'sent'
         },
         replyMessage: {
-            date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
             text: 'ok',
             status:'received'
         },
@@ -139,10 +139,11 @@ var app = new Vue ( {
 
         addMessage: function(index) {
             let thisContact=this.contacts[index];
+            
             if (this.newMessage.text !== '' ){
                 thisContact.messages.push(this.newMessage);
                 this.newMessage = {
-                date: dayjs().format('DD/MM/YYYY hh:mm:ss'),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 text: '',
                 status:'sent'};
                 
@@ -156,11 +157,9 @@ var app = new Vue ( {
             
             if(this.activeMessage == index) {
                 this.activeMessage = -1
-                this.contacts[index].visible = false
 
             } else {
                 this.activeMessage = index
-                this.contacts[index].visible = true
             }
 
         },
@@ -168,11 +167,27 @@ var app = new Vue ( {
         deleteMessage: function(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
         },
-        // // getLastMessage: function() {
-        //     // filtri i messaggi della chat corrente prendendo solo quelli ricevuti
-        //     // selezioni l'ultimo dei messaggi ricevuti e prendi la data
-        //     // se non ci sono messaggi ricevuti, ritorni "non disponibile"
-        // }
+
+        getLastAccess: function() {
+            let receivedEmpty = 'Non disponibile'
+            let messagesCurrentChat = this.contacts[this.activeChat].messages;
+            // filtri i messaggi della chat corrente prendendo solo quelli ricevuti
+
+            let filteredMessages = messagesCurrentChat.filter(message => message.status === 'received')
+            if(filteredMessages != 0) {
+                return filteredMessages.at(-1).date
+
+            } else {
+                return receivedEmpty
+            }
+            
+
+            
+
+            
+            // selezioni l'ultimo dei messaggi ricevuti e prendi la data
+            // se non ci sono messaggi ricevuti, ritorni "non disponibile"
+        }
         
     }
 }
@@ -182,3 +197,5 @@ var app = new Vue ( {
 // setTimeout( function(){
 //     this.contacts[this.active].messages.push(this.replyMessage)
 // },1000);
+
+/* <div class="last-login" v-if="contacts[activeChat].messages.at(-1).status === 'received'">Ultimo Accesso oggi {{contacts[activeChat].messages.at(-1).date}} </div> */

@@ -127,10 +127,14 @@ var app = new Vue ( {
     methods: {
         selectedChat: function(index) {
             this.activeChat = index
+            this.activeMessage = -1
             if(this.activeChat !== index){
-                this.contacts[index].visible = false
+              this.contacts[index].visible = false
+            } else {
+              this.contacts[index].visible = true
 
-            }             
+            }
+                     
         },
 
         addMessage: function(index) {
@@ -163,8 +167,12 @@ var app = new Vue ( {
 
         deleteMessage: function(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
-        }
-
+        },
+        // // getLastMessage: function() {
+        //     // filtri i messaggi della chat corrente prendendo solo quelli ricevuti
+        //     // selezioni l'ultimo dei messaggi ricevuti e prendi la data
+        //     // se non ci sono messaggi ricevuti, ritorni "non disponibile"
+        // }
         
     }
 }

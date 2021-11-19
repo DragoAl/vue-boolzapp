@@ -20,7 +20,9 @@ var app = new Vue ( {
     
     el:'#container',
     data : {
+        // setta l'indice della chat attiva
         activeChat: 0,
+        // 
         activeMessage:-1,
         newMessage: {
             date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
@@ -119,6 +121,7 @@ var app = new Vue ( {
     },
 
     methods: {
+        // al click imposta l'active chat = all'argomento passato selezionando la chat desiderata
         selectedChat: function(index) {
             this.activeChat = index
             this.activeMessage = -1
@@ -130,7 +133,7 @@ var app = new Vue ( {
             }
                      
         },
-
+        // aggiunge il valore dell'input nella chat attiva
         addMessage: function(index) {
             let thisContact=this.contacts[index];
             
@@ -141,21 +144,19 @@ var app = new Vue ( {
                 text: '',
                 status:'sent'};
                 
+                // setta la risposta automatica dopo 1 sec
                 setTimeout(() => {
                     thisContact.messages.push({
                         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                         text: 'ok',
                         status:'received'
-
                     });
                     
                 },1000);
             }
-            console.log(thisContact.messages);
         },
-
+        // funzione per rendere univoca l'apertura del dropmenu
         selectedMessage: function(index){
-            
             if(this.activeMessage == index) {
                 this.activeMessage = -1
 
@@ -164,12 +165,12 @@ var app = new Vue ( {
             }
 
         },
-
+        
+        // funzione per cancellare il messaggio selezionato
         deleteMessage: function(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
-            console.log(this.contacts[this.activeChat].messages);
         },
-
+        // funzione per visualizzare l'ultimo acceso del contatto con cui si sta chattando
         getLastAccess: function() {
             let receivedEmpty = 'Non disponibile'
             let messagesCurrentChat = this.contacts[this.activeChat].messages;

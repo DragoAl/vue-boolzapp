@@ -151,6 +151,7 @@ var app = new Vue ( {
                     
                 },1000);
             }
+            console.log(thisContact.messages);
         },
 
         selectedMessage: function(index){
@@ -166,6 +167,7 @@ var app = new Vue ( {
 
         deleteMessage: function(index){
             this.contacts[this.activeChat].messages.splice(index, 1);
+            console.log(this.contacts[this.activeChat].messages);
         },
 
         getLastAccess: function() {

@@ -52,10 +52,15 @@
                     <div id="info-side-box">
                         
                         <div class="username" >{{contact.name}}
-                            <div class="last-msg">{{contact.messages.at(-1).text}}</div>
+                            <div class="last-msg" v-if='contact.messages.length!== 0'>{{contact.messages.at(-1).text}}</div>
+                            <div class="last-msg" v-else>Nessun Messaggio!</div>
+                            
+
                         </div>
                         
-                        <div class=" side-date-time">{{contact.messages.at(-1).date}}</div>
+                        <div class=" side-date-time" v-if='contact.messages.length!== 0' >{{contact.messages.at(-1).date}}</div>
+                        <div class="last-msg" v-else></div>
+
 
                     </div>
                 </div> 
